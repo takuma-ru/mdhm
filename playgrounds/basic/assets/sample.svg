@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" role="img" aria-label="mdht sample asset">
+  <rect width="320" height="120" rx="24" fill="#e11d48"/>
+  <circle cx="70" cy="60" r="34" fill="#fff" opacity="0.9"/>
+  <path d="M130 42h130v16H130zm0 28h90v16h-90z" fill="#fff"/>
+</svg>

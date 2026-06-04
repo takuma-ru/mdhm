@@ -1,0 +1,47 @@
+{
+  "name": "mdht",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "bin": {
+    "mdht": "./dist/index.mjs"
+  },
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "build": "tsdown",
+    "format": "oxfmt -c oxfmt.config.ts .",
+    "format:check": "oxfmt -c oxfmt.config.ts --check .",
+    "lint": "oxlint -c oxlint.config.ts .",
+    "playground:build": "pnpm run build && node dist/index.mjs build --root-dir playgrounds/basic --out-dir playgrounds/basic-dist",
+    "playground:dev": "pnpm run build && node dist/index.mjs dev --root-dir playgrounds/basic --out-dir playgrounds/basic-dist",
+    "test": "pnpm run typecheck && pnpm run lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "chokidar": "^5.0.0",
+    "commander": "^15.0.0",
+    "gray-matter": "^4.0.3",
+    "ignore": "^7.0.5",
+    "rehype-stringify": "^10.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "sirv": "^3.0.2",
+    "unified": "^11.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "oxfmt": "^0.53.0",
+    "oxlint": "^1.68.0",
+    "tsdown": "^0.22.1",
+    "typescript": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.5.1"
+}
