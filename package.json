@@ -18,6 +18,8 @@
     "lint": "oxlint -c oxlint.config.ts .",
     "playground:build": "pnpm run build && node dist/index.mjs build --root-dir playgrounds/basic --out-dir playgrounds/basic-dist",
     "playground:dev": "pnpm run build && node dist/index.mjs dev --root-dir playgrounds/basic --out-dir playgrounds/basic-dist",
+    "release": "rlse",
+    "rlse": "rlse",
     "test": "pnpm run build && vitest run --fileParallelism=false && pnpm run typecheck && pnpm run lint",
     "test:watch": "vitest --fileParallelism=false",
     "typecheck": "tsc --noEmit"
@@ -38,6 +40,7 @@
     "@types/node": "^25.9.1",
     "oxfmt": "^0.53.0",
     "oxlint": "^1.68.0",
+    "rlse.ts": "^0.0.6",
     "tsdown": "^0.22.1",
     "typescript": "^6.0.3",
     "vitest": "^4.1.8"
