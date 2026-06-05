@@ -1,12 +1,12 @@
 {
-  "name": "mdht",
+  "name": "mdhm",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "license": "ISC",
   "author": "",
   "bin": {
-    "mdht": "./dist/index.mjs"
+    "mdhm": "./dist/index.mjs"
   },
   "type": "module",
   "main": "./dist/index.mjs",

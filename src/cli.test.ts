@@ -26,7 +26,7 @@ describe("cli behavior", () => {
     const result = await runMdht([]);
 
     expect(result.code).toBe(0);
-    expect(result.stdout).toContain("Usage: mdht");
+    expect(result.stdout).toContain("Usage: mdhm");
     expect(result.stdout).toContain("build");
     expect(result.stdout).toContain("dev");
   });
@@ -74,7 +74,7 @@ describe("cli behavior", () => {
     tempDir = await createTempSite();
     await writeText(path.join(tempDir, "index.md"), "# Config Ignored");
     await writeText(
-      path.join(tempDir, "mdht.config.js"),
+      path.join(tempDir, "mdhm.config.js"),
       "throw new Error('config file should not be loaded')",
     );
 

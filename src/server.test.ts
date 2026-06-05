@@ -54,7 +54,7 @@ describe("server behavior", () => {
       });
 
       const initialHtml = await readText(path.join(outDir, "index.html"));
-      expect(initialHtml).toContain("/__mdht_events");
+      expect(initialHtml).toContain("/__mdhm_events");
 
       await writeText(path.join(rootDir, "index.md"), "# Second");
       await waitFor(async () =>

@@ -31,7 +31,7 @@ export async function startDevServer(options: DevOptions): Promise<void> {
   });
 
   await new Promise<void>((resolve) => server.listen(options.port, options.host, resolve));
-  console.log(`mdht dev server listening on http://${options.host}:${options.port}`);
+  console.log(`mdhm dev server listening on http://${options.host}:${options.port}`);
   if (options.host === "0.0.0.0") {
     console.log(`local: http://localhost:${options.port}`);
   }

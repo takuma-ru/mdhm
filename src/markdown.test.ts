@@ -65,13 +65,13 @@ describe("Markdown and HTML rendering", () => {
     expect(html).toContain("<title>foo</title>");
     expect(html).toContain("<main>");
     expect(html).toContain("<article>");
-    expect(html).toContain("--mdht-base");
-    expect(html).toContain("--mdht-bg");
-    expect(html).toContain("--mdht-fg");
-    expect(html).toContain("--mdht-muted");
-    expect(html).toContain("--mdht-border");
-    expect(html).toContain("--mdht-surface");
-    expect(html).toContain("--mdht-link");
+    expect(html).toContain("--mdhm-base");
+    expect(html).toContain("--mdhm-bg");
+    expect(html).toContain("--mdhm-fg");
+    expect(html).toContain("--mdhm-muted");
+    expect(html).toContain("--mdhm-border");
+    expect(html).toContain("--mdhm-surface");
+    expect(html).toContain("--mdhm-link");
     expect(html).toContain("color-mix(");
     expect(html).toContain("prefers-color-scheme: dark");
   });
@@ -98,7 +98,7 @@ head:
       href: /favicon.svg
   style:
     - |
-      :root { --mdht-base: #3b82f6; }
+      :root { --mdhm-base: #3b82f6; }
   script:
     - src: /app.js
       type: module
@@ -122,7 +122,7 @@ custom: value
     expect(html).toContain('<meta name="author" content="kcatt">');
     expect(html).toContain('<meta property="og:title" content="My Page">');
     expect(html).toContain('<link rel="icon" href="/favicon.svg">');
-    expect(html).toContain("<style>:root { --mdht-base: #3b82f6; }");
+    expect(html).toContain("<style>:root { --mdhm-base: #3b82f6; }");
     expect(html).toContain('<script src="/app.js" type="module" defer></script>');
     expect(html).toContain('<script>console.log("inline script");');
     expect(html).toContain(">[frontmatter]</button>");
@@ -239,7 +239,7 @@ head:
       data-priority: high
   style:
     - |
-      :root { --mdht-base: red; }
+      :root { --mdhm-base: red; }
     - |
       a { text-decoration-thickness: 2px; }
   script:
@@ -268,7 +268,7 @@ head:
     expect(headHtml).toContain(
       '<link rel="preload" href="/asset.js" as="script" data-priority="high">',
     );
-    expect(headHtml).toContain("<style>:root { --mdht-base: red; }");
+    expect(headHtml).toContain("<style>:root { --mdhm-base: red; }");
     expect(headHtml).toContain("<style>a { text-decoration-thickness: 2px; }");
     expect(headHtml).toContain('<script src="/one.js" type="module" defer data-id="7"></script>');
     expect(headHtml).not.toContain("async");

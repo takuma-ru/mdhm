@@ -18,45 +18,45 @@ type HastNode = {
 
 const builtInCss = `
 :root {
-  --mdht-base: #3b82f6;
-  --mdht-bg: canvas;
-  --mdht-fg: canvastext;
-  --mdht-surface: color-mix(in oklch, var(--mdht-base), var(--mdht-bg) 94%);
-  --mdht-muted: color-mix(in oklch, var(--mdht-fg), var(--mdht-bg) 42%);
-  --mdht-border: color-mix(in oklch, var(--mdht-base), var(--mdht-bg) 78%);
-  --mdht-link: var(--mdht-base);
+  --mdhm-base: #3b82f6;
+  --mdhm-bg: canvas;
+  --mdhm-fg: canvastext;
+  --mdhm-surface: color-mix(in oklch, var(--mdhm-base), var(--mdhm-bg) 94%);
+  --mdhm-muted: color-mix(in oklch, var(--mdhm-fg), var(--mdhm-bg) 42%);
+  --mdhm-border: color-mix(in oklch, var(--mdhm-base), var(--mdhm-bg) 78%);
+  --mdhm-link: var(--mdhm-base);
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --mdht-base: #93c5fd;
-    --mdht-surface: color-mix(in oklch, var(--mdht-base), var(--mdht-bg) 90%);
-    --mdht-border: color-mix(in oklch, var(--mdht-base), var(--mdht-bg) 70%);
+    --mdhm-base: #93c5fd;
+    --mdhm-surface: color-mix(in oklch, var(--mdhm-base), var(--mdhm-bg) 90%);
+    --mdhm-border: color-mix(in oklch, var(--mdhm-base), var(--mdhm-bg) 70%);
   }
 }
 
 * { box-sizing: border-box; }
-html { background: var(--mdht-bg); color: var(--mdht-fg); font-family: ui-sans-serif, system-ui, sans-serif; line-height: 1.6; }
+html { background: var(--mdhm-bg); color: var(--mdhm-fg); font-family: ui-sans-serif, system-ui, sans-serif; line-height: 1.6; }
 body { margin: 0; }
 main { width: min(100% - 2rem, 72ch); margin: 0 auto; padding: 4rem 0; }
 article > * + * { margin-block-start: 1rem; }
 h1, h2, h3, h4, h5, h6 { line-height: 1.2; margin-block: 2rem 1rem; }
 h1 { font-size: clamp(2rem, 8vw, 4rem); letter-spacing: -0.04em; }
 h2 { font-size: clamp(1.5rem, 5vw, 2.25rem); letter-spacing: -0.03em; }
-a { color: var(--mdht-link); text-underline-offset: 0.2em; }
+a { color: var(--mdhm-link); text-underline-offset: 0.2em; }
 img, video, svg { max-width: 100%; height: auto; }
-pre { overflow-x: auto; padding: 1rem; border: 1px solid var(--mdht-border); border-radius: 0.75rem; background: var(--mdht-surface); }
+pre { overflow-x: auto; padding: 1rem; border: 1px solid var(--mdhm-border); border-radius: 0.75rem; background: var(--mdhm-surface); }
 code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.92em; }
-:not(pre) > code { padding: 0.12em 0.3em; border-radius: 0.35rem; background: var(--mdht-surface); }
-blockquote { margin-inline: 0; padding-inline-start: 1rem; border-inline-start: 0.25rem solid var(--mdht-border); color: var(--mdht-muted); }
+:not(pre) > code { padding: 0.12em 0.3em; border-radius: 0.35rem; background: var(--mdhm-surface); }
+blockquote { margin-inline: 0; padding-inline-start: 1rem; border-inline-start: 0.25rem solid var(--mdhm-border); color: var(--mdhm-muted); }
 table { width: 100%; border-collapse: collapse; }
-th, td { padding: 0.5rem; border: 1px solid var(--mdht-border); text-align: start; }
-hr { border: 0; border-block-start: 1px solid var(--mdht-border); margin-block: 2rem; }
+th, td { padding: 0.5rem; border: 1px solid var(--mdhm-border); text-align: start; }
+hr { border: 0; border-block-start: 1px solid var(--mdhm-border); margin-block: 2rem; }
 button { font: inherit; }
-body > button { position: fixed; inset-block-end: 0.75rem; inset-inline-end: 0.75rem; z-index: 10; padding: 0.35rem 0.55rem; border: 1px solid var(--mdht-border); border-radius: 999px; background: var(--mdht-surface); color: var(--mdht-fg); font-size: 0.78rem; }
+body > button { position: fixed; inset-block-end: 0.75rem; inset-inline-end: 0.75rem; z-index: 10; padding: 0.35rem 0.55rem; border: 1px solid var(--mdhm-border); border-radius: 999px; background: var(--mdhm-surface); color: var(--mdhm-fg); font-size: 0.78rem; }
 body > pre[hidden] { display: none; }
-body > pre:not([hidden]) { position: fixed; inset: 1rem; z-index: 9; overflow: auto; margin: 0; padding: 1rem; border: 1px solid var(--mdht-border); border-radius: 0.75rem; background: var(--mdht-bg); color: var(--mdht-fg); white-space: pre-wrap; }
+body > pre:not([hidden]) { position: fixed; inset: 1rem; z-index: 9; overflow: auto; margin: 0; padding: 1rem; border: 1px solid var(--mdhm-border); border-radius: 0.75rem; background: var(--mdhm-bg); color: var(--mdhm-fg); white-space: pre-wrap; }
 `;
 
 export async function renderMarkdownFile(
@@ -231,7 +231,7 @@ function renderAttribute(name: string, value: unknown): string {
 }
 
 function renderFrontmatterUi(frontmatterSource: string): string {
-  const id = "mdht-frontmatter";
+  const id = "mdhm-frontmatter";
   return `<button type="button" aria-controls="${id}" onclick="document.getElementById('${id}').toggleAttribute('hidden')">[frontmatter]</button>
 <pre id="${id}" hidden>${escapeHtml(frontmatterSource)}</pre>`;
 }

@@ -11,7 +11,7 @@ export async function runCli(): Promise<void> {
   const program = new Command();
 
   program
-    .name("mdht")
+    .name("mdhm")
     .description("Minimal Markdown to static HTML documentation framework")
     .version("1.0.0");
 

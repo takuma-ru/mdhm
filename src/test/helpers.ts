@@ -15,7 +15,7 @@ export type CliResult = {
 };
 
 export async function createTempSite(): Promise<string> {
-  return await mkdtemp(path.join(tmpdir(), "mdht-test-"));
+  return await mkdtemp(path.join(tmpdir(), "mdhm-test-"));
 }
 
 export async function cleanupTempSite(dir: string): Promise<void> {

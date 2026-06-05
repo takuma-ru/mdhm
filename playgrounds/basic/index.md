@@ -1,22 +1,22 @@
 ---
 lang: ja
 head:
-  title: mdht Playground
+  title: mdhm Playground
   description: Minimal Markdown SSG playground
   meta:
     - property: og:title
-      content: mdht Playground
+      content: mdhm Playground
   link:
     - rel: icon
       href: /assets/favicon.svg
   style: |
     :root {
-      --mdht-base: #e11d48;
+      --mdhm-base: #e11d48;
     }
   script:
     - |
-      console.log("mdht playground loaded");
-project: mdht
+      console.log("mdhm playground loaded");
+project: mdhm
 status: playground
 features:
   - CommonMark
@@ -24,9 +24,9 @@ features:
   - frontmatter
 ---
 
-# mdht Playground
+# mdhm Playground
 
-This page is generated from Markdown by `mdht build`.
+This page is generated from Markdown by `mdhm build`.
 
 ## GFM
 

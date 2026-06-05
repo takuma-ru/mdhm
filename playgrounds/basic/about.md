@@ -1,6 +1,6 @@
 ---
 head:
-  title: About mdht
+  title: About mdhm
 note: This frontmatter is visible from the fixed button.
 ---
 

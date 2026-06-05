@@ -12,7 +12,7 @@ afterEach(async () => {
   }
 });
 
-describe("mdht build", () => {
+describe("mdhm build", () => {
   it("maps Markdown files to HTML files and copies non-Markdown files", async () => {
     tempDir = await createTempSite();
     const rootDir = path.join(tempDir, "site");
