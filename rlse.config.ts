@@ -29,6 +29,7 @@ export default defineConfig({
       runCommand: "pnpm run test",
       commit: {
         message: "Release mdhm",
+        skipIfNoChanges: true,
       },
       push: {
         branch: "main",

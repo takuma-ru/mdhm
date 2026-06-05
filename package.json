@@ -6,8 +6,11 @@
   "license": "ISC",
   "author": "",
   "bin": {
-    "mdhm": "./dist/index.mjs"
+    "mdhm": "dist/index.mjs"
   },
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
