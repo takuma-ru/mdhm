@@ -20,7 +20,7 @@ export default defineConfig({
     steps.checkGitHubAuth(),
     steps.checkNpmToken(),
     ...presets.npmRelease({
-      resolvePackage: { name: "mdhm" },
+      resolvePackage: { name: "mdhm.cli" },
       calculateNextSemver: {
         level: args.level,
         pre: args.pre,
@@ -28,7 +28,7 @@ export default defineConfig({
       },
       runCommand: "pnpm run test",
       commit: {
-        message: "Release mdhm",
+        message: "Release mdhm.cli",
         skipIfNoChanges: true,
       },
       push: {
@@ -37,12 +37,12 @@ export default defineConfig({
     }),
     steps.tag({
       name: tag,
-      message: (context) => `Release mdhm ${version(context)}`,
+      message: (context) => `Release mdhm.cli ${version(context)}`,
     }),
     steps.pushTag({ tag }),
     steps.githubRelease({
       tag,
-      title: (context) => `mdhm ${version(context)}`,
+      title: (context) => `mdhm.cli ${version(context)}`,
       prerelease: ({ results }: RlseContext) =>
         results.findStep<{ pre: boolean }>("calculateNextSemver").pre,
     }),
