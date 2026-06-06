@@ -1,11 +1,50 @@
+import { execFileSync } from "node:child_process";
 import { defineConfig, steps, z } from "rlse.ts";
-import type { RlseContext } from "rlse.ts";
+import type { RlseContext, RlseStep } from "rlse.ts";
 
 const version = ({ results }: RlseContext) =>
   results.findStep<{ nextVersion: string }>("calculateNextSemver").nextVersion;
 
 const tag = (context: RlseContext) => `v${version(context)}`;
 const releaseBranch = steps.releaseBranchName({ version: tag });
+
+const createReleasePullRequest = (): RlseStep => ({
+  name: "createReleasePullRequest",
+  run: (context) => {
+    const branch = releaseBranch(context);
+    const releaseVersion = version(context);
+    const title = `Release mdhm.cli ${releaseVersion}`;
+    const body = `Release mdhm.cli ${releaseVersion}`;
+
+    if (context.dryRun) {
+      console.info(`[dry-run] Skip gh pr create --base main --head ${branch} --title ${title}`);
+
+      return {
+        base: "main",
+        branch,
+        title,
+        body,
+        dryRun: true,
+        created: false,
+      };
+    }
+
+    execFileSync(
+      "gh",
+      ["pr", "create", "--base", "main", "--head", branch, "--title", title, "--body", body],
+      { cwd: context.cwd, stdio: "inherit" },
+    );
+
+    return {
+      base: "main",
+      branch,
+      title,
+      body,
+      dryRun: false,
+      created: true,
+    };
+  },
+});
 
 export default defineConfig({
   args: z.object({
@@ -79,6 +118,7 @@ export default defineConfig({
       branch: releaseBranch,
       setUpstream: true,
     }),
+    createReleasePullRequest(),
     steps.tag({
       name: tag,
       message: (context) => `Release mdhm.cli ${version(context)}`,
