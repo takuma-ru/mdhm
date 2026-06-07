@@ -58,7 +58,6 @@ export default defineConfig({
   flow: ({ args }) => [
     steps.checkCleanWorkingTree(),
     steps.checkGitHubAuth(),
-    steps.checkNpmToken(),
     steps.resolvePackage({ name: "mdhm.cli" }),
     steps.resolvePublishedVersion({
       packageName: ({ results }: RlseContext) =>
