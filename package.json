@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/takuma-ru/mdhm.cli"
   },
+  "publishConfig": {
+    "provenance": true
+  },
   "license": "ISC",
   "author": "",
   "bin": {
