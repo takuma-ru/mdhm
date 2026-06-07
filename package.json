@@ -5,7 +5,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/takuma-ru/mdhm.cli"
+    "url": "git+https://github.com/takuma-ru/mdhm.cli.git"
   },
   "publishConfig": {
     "provenance": true
