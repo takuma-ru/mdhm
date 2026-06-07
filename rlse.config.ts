@@ -29,11 +29,24 @@ const createReleasePullRequest = (): RlseStep => ({
       };
     }
 
-    execFileSync(
-      "gh",
-      ["pr", "create", "--base", "main", "--head", branch, "--title", title, "--body", body],
-      { cwd: context.cwd, stdio: "inherit" },
-    );
+    try {
+      execFileSync(
+        "gh",
+        ["pr", "create", "--base", "main", "--head", branch, "--title", title, "--body", body],
+        { cwd: context.cwd, stdio: "inherit" },
+      );
+    } catch {
+      console.warn(`Failed to create pull request. Create it manually from ${branch}.`);
+
+      return {
+        base: "main",
+        branch,
+        title,
+        body,
+        dryRun: false,
+        created: false,
+      };
+    }
 
     return {
       base: "main",
