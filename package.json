@@ -47,7 +47,7 @@
     "unified": "^11.0.5"
   },
   "devDependencies": {
-    "@types/node": "^25.9.1",
+    "@types/node": "^25.9.2",
     "oxfmt": "^0.53.0",
     "oxlint": "^1.68.0",
     "rlse.ts": "^0.0.6",
