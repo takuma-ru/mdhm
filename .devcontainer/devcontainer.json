@@ -1,0 +1,5 @@
+{
+    "name": "Node.js 24 Environment",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:24",
+    "postCreateCommand": "npm install -g pnpm@11"
+}

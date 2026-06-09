@@ -1,0 +1,68 @@
+{
+  // These tasks will run in order when initializing your CodeSandbox project.
+  "setupTasks": [
+    {
+      "command": "pnpm install",
+      "name": "Installing Dependencies"
+    }
+  ],
+
+  // These tasks can be run from CodeSandbox. Running one will open a log in the app.
+  "tasks": {
+    "build": {
+      "name": "build",
+      "command": "pnpm build",
+      "runAtStart": false
+    },
+    "format": {
+      "name": "format",
+      "command": "pnpm format",
+      "runAtStart": false
+    },
+    "format:check": {
+      "name": "format:check",
+      "command": "pnpm format:check",
+      "runAtStart": false
+    },
+    "lint": {
+      "name": "lint",
+      "command": "pnpm lint",
+      "runAtStart": false
+    },
+    "playground:build": {
+      "name": "playground:build",
+      "command": "pnpm playground:build",
+      "runAtStart": false
+    },
+    "playground:dev": {
+      "name": "playground:dev",
+      "command": "pnpm playground:dev",
+      "runAtStart": false
+    },
+    "release": {
+      "name": "release",
+      "command": "pnpm release",
+      "runAtStart": false
+    },
+    "rlse": {
+      "name": "rlse",
+      "command": "pnpm rlse",
+      "runAtStart": false
+    },
+    "test": {
+      "name": "test",
+      "command": "pnpm test",
+      "runAtStart": false
+    },
+    "test:watch": {
+      "name": "test:watch",
+      "command": "pnpm test:watch",
+      "runAtStart": false
+    },
+    "typecheck": {
+      "name": "typecheck",
+      "command": "pnpm typecheck",
+      "runAtStart": false
+    }
+  }
+}
